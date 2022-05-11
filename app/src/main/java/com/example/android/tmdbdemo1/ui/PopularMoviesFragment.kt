@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.android.tmdbdemo1.databinding.FragmentPopularMoviesBinding
 
 class PopularMoviesFragment : Fragment() {
+
+    private val viewModel by viewModels<PopularMoviesViewModel>()
 
     private var _binding: FragmentPopularMoviesBinding? = null
     private val binding get() = _binding!!
