@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.android.tmdbdemo1.databinding.FragmentPopularMoviesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
 
     private val viewModel by viewModels<PopularMoviesViewModel>()
