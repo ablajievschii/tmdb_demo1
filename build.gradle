@@ -22,6 +22,7 @@ plugins {
 
 ext {
     hiltVersion = '2.41'
+    lifecycleVersion = '2.4.1'
 }
 
 task clean(type: Delete) {
