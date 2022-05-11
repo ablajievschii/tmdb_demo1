@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/popularMoviesFragment"
-        android:name="com.example.android.tmdbdemo1.PopularMoviesFragment"
+        android:name="com.example.android.tmdbdemo1.ui.PopularMoviesFragment"
         android:label="fragment_popular_movies"
         tools:layout="@layout/fragment_popular_movies" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.example.android.tmdbdemo1.MovieDetailsFragment"
+        android:name="com.example.android.tmdbdemo1.ui.details.MovieDetailsFragment"
         android:label="fragment_movie_details"
         tools:layout="@layout/fragment_movie_details" />
 </navigation>

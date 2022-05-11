@@ -1,4 +1,4 @@
-package com.example.android.tmdbdemo1
+package com.example.android.tmdbdemo1.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

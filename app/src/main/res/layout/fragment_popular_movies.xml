@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.TMDBDemo1.FullscreenContainer"
-    tools:context=".PopularMoviesFragment">
+    tools:context=".ui.PopularMoviesFragment">
 
     <TextView
         android:id="@+id/fullscreen_content"
