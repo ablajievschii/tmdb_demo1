@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 object TMDBServiceBuilder {
 
     private val client = OkHttpClient.Builder()
-//        .addInterceptor() // TODO add api_key append interceptor
+        .addInterceptor(AddApiKeyInterceptor()) // TODO add api_key append interceptor
         .build()
 
 
