@@ -3,10 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-<!--  TMDB colors  -->
+    <!--  TMDB colors  -->
     <color name="dark_blue_900">#0d253f</color>
     <color name="dark_blue_700">#304b6d</color>
     <color name="light_blue_400">#01b4e4</color>
     <color name="light_blue_200">#7bd2ed</color>
     <color name="light_green">#90cea1</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>
