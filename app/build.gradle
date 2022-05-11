@@ -20,6 +20,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "TMDB_API_KEY", TMDB_API_KEY
+            buildConfigField "String", "TMDB_BASE_URL", TMDB_BASE_URL
+            buildConfigField "String", "TMDB_IMAGE_BASE_URL", TMDB_IMAGE_BASE_URL
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
