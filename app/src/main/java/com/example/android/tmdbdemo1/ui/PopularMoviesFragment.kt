@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.android.tmdbdemo1.R
 import com.example.android.tmdbdemo1.databinding.FragmentPopularMoviesBinding
@@ -55,11 +56,6 @@ class PopularMoviesFragment : Fragment() {
                 pagingAdapter.submitData(pagingData)
             }
         }
-
-//        binding.bGoToDetails.setOnClickListener {
-//            val action = PopularMoviesFragmentDirections.actionPopularMoviesFragmentToMovieDetailsFragment()
-//            findNavController().navigate(action)
-//        }
     }
 
     override fun onDestroyView() {
@@ -68,7 +64,13 @@ class PopularMoviesFragment : Fragment() {
     }
 
     private fun setupListAdapter() {
-        binding.items.adapter = ItemsAdapter()
+        val adapter = ItemsAdapter()
+        binding.items.adapter = adapter
+        adapter.setOnClickListener() {uiModel, view ->
+            (uiModel as? UiModel.DiscoverMovieItem)?.let {
+                goToDetails(it)
+            }
+        }
         val space = resources.getDimensionPixelSize(R.dimen.list_item_space)
         binding.items.addItemDecoration(SpaceItemDecoration(
             Rect().apply {
@@ -78,5 +80,10 @@ class PopularMoviesFragment : Fragment() {
                 right = space
             }
         ))
+    }
+
+    private fun goToDetails(uiModel: UiModel) {
+        val action = PopularMoviesFragmentDirections.actionPopularMoviesFragmentToMovieDetailsFragment()
+        findNavController().navigate(action)
     }
 }
