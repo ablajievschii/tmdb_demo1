@@ -9,10 +9,17 @@ import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
-@BindingAdapter("app:posterPathThumb")
+@BindingAdapter("android:posterPathThumb")
 fun bindPosterPathThumb(imageView: ImageView, path: String?) {
     path?.let {
         imageView.load(tmdbImageUrl(path, "w342")) // FIXME Code smell, magic number :)
+    }
+}
+
+@BindingAdapter("android:posterPath")
+fun bindPosterPath(imageView: ImageView, path: String?) {
+    path?.let {
+        imageView.load(tmdbImageUrl(path, "w542")) // FIXME Code smell, magic number :)
     }
 }
 
