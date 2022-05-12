@@ -1,6 +1,7 @@
 package com.example.android.tmdbdemo1.api
 
 import com.example.android.tmdbdemo1.api.DiscoverMovieResponse
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -9,8 +10,11 @@ import retrofit2.http.Query
 // /genre/movie/list
 interface TMDBRestApi {
 
-    @GET("/discover/movie")
+    /**
+     * @param page minimum: 1; maximum: 1000; default: 1
+     */
+    @GET("discover/movie")
     suspend fun getPopularMovies(
         @Query("page") page: Int
-    ): DiscoverMovieResponse
+    ): Response<DiscoverMovieResponse>
 }
