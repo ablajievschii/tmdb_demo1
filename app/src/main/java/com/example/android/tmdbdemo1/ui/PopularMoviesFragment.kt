@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.android.tmdbdemo1.R
 import com.example.android.tmdbdemo1.databinding.FragmentPopularMoviesBinding
+import com.example.android.tmdbdemo1.ui.PopularMoviesFragmentDirections.Companion.actionPopularMoviesFragmentToMovieDetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -66,7 +67,7 @@ class PopularMoviesFragment : Fragment() {
     private fun setupListAdapter() {
         val adapter = ItemsAdapter()
         binding.items.adapter = adapter
-        adapter.setOnClickListener() {uiModel, view ->
+        adapter.setOnClickListener() { uiModel, _ ->
             (uiModel as? UiModel.DiscoverMovieItem)?.let {
                 goToDetails(it)
             }
@@ -82,8 +83,8 @@ class PopularMoviesFragment : Fragment() {
         ))
     }
 
-    private fun goToDetails(uiModel: UiModel) {
-        val action = PopularMoviesFragmentDirections.actionPopularMoviesFragmentToMovieDetailsFragment()
+    private fun goToDetails(movieItem: UiModel.DiscoverMovieItem) {
+        val action = actionPopularMoviesFragmentToMovieDetailsFragment(movieItem.movie.id)
         findNavController().navigate(action)
     }
 }
