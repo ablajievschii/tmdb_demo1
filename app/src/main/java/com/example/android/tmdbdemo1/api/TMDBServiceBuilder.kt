@@ -5,6 +5,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.BASIC
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object TMDBServiceBuilder {
 
@@ -22,6 +23,9 @@ object TMDBServiceBuilder {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.TMDB_BASE_URL)
             .client(client)
+            .addConverterFactory(
+                GsonConverterFactory.create()
+            )
             .build()
             .create(service)
     }

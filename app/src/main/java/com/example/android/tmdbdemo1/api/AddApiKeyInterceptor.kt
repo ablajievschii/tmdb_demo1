@@ -12,6 +12,7 @@ class AddApiKeyInterceptor : Interceptor {
         val urlBuilder = HttpUrl.Builder()
             .scheme(url.scheme)
             .host(url.host)
+            .port(url.port)
             // add original request path segments
             .addPathSegments(url.encodedPathSegments.joinToString("/"))
             .addQueryParameter("api_key", BuildConfig.TMDB_API_KEY)
