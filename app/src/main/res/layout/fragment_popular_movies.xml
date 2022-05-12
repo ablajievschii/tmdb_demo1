@@ -25,13 +25,4 @@
             tools:itemCount="10"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <Button
-        android:id="@+id/bGoToDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="load data"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
