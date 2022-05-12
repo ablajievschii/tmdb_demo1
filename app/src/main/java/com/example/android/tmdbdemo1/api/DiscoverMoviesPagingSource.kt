@@ -2,10 +2,16 @@ package com.example.android.tmdbdemo1.api
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import androidx.room.withTransaction
+import com.example.android.tmdbdemo1.db.MoviesDatabase
 import com.example.android.tmdbdemo1.model.DiscoverMovie
 
+/**
+ * Could be replaced with RemoteMediator, but it is an experimental API
+ */
 class DiscoverMoviesPagingSource constructor(
-    private val service: TMDBRestApi
+    private val service: TMDBRestApi,
+    private val database: MoviesDatabase
 ) : PagingSource<Int, DiscoverMovie>() {
     override fun getRefreshKey(state: PagingState<Int, DiscoverMovie>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
@@ -20,8 +26,17 @@ class DiscoverMoviesPagingSource constructor(
         val body = response.body()
         return if (response.isSuccessful && body != null) {
             val nextKey = if (body.page < body.totalPages) body.page + 1 else null
+            val results = body.results ?: emptyList()
+
+            if (results.isNotEmpty()) {
+                // cache movies. NOTE currently it is not used for home page data, but that will be an improvement
+                database.apply {
+                    discoverDao().insertAll(results)
+                }
+            }
+
             LoadResult.Page(
-                data = body.results ?: emptyList(),
+                data = results,
                 prevKey = null, // support only paging forward,
                 nextKey = nextKey
             )
