@@ -16,6 +16,9 @@ interface DiscoverDao {
     @Query("SELECT * FROM discover")
     fun getMovies(): PagingSource<Int, DiscoverMovie>
 
+    @Query("SELECT * FROM discover WHERE id = :movieId")
+    suspend fun getMovieById(movieId: Int): DiscoverMovie
+
     @Query("DELETE FROM discover")
     suspend fun clear()
 }
