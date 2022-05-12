@@ -2,6 +2,7 @@ package com.example.android.tmdbdemo1.api
 
 import com.example.android.tmdbdemo1.BuildConfig
 import com.example.android.tmdbdemo1.api.DiscoverMovieResponse
+import com.example.android.tmdbdemo1.model.Genres
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -18,6 +19,9 @@ interface TMDBRestApi {
     suspend fun getPopularMovies(
         @Query("page") page: Int
     ): Response<DiscoverMovieResponse>
+
+    @GET("genre/movie/list")
+    suspend fun getGenres(): Response<Genres>
 }
 
 fun tmdbImageUrl(path: String, size: String): String {
