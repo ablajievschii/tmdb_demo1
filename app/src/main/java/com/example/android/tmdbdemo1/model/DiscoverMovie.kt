@@ -1,8 +1,12 @@
 package com.example.android.tmdbdemo1.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "discover")
 data class DiscoverMovie(
+    @PrimaryKey
     val id: Int,
     val title: String? = null,
     val overview: String? = null,
