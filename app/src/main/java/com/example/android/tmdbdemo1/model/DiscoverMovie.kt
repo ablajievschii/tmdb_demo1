@@ -21,5 +21,7 @@ data class DiscoverMovie(
         ]
      */
     @SerializedName(value = "poster_path")
-    val posterPath: String? = null
+    val posterPath: String? = null,
+    @SerializedName(value = "genre_ids")
+    val genreIds: List<Int>? = null
 )
