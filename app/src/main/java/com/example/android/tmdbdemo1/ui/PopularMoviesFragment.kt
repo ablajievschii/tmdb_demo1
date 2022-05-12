@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.tmdbdemo1.databinding.FragmentPopularMoviesBinding
@@ -38,17 +38,27 @@ class PopularMoviesFragment : Fragment() {
 
         setupListAdapter()
 
+        binding.refreshLayout.setOnRefreshListener {
+            viewModel.accept(UiAction.LoadMore())
+        }
+
+        val pagingAdapter = (binding.items.adapter as ItemsAdapter)
+        viewLifecycleOwner.lifecycleScope.launch {
+            pagingAdapter.loadStateFlow.collectLatest { states ->
+                binding.refreshLayout.isRefreshing = states.refresh is LoadState.Loading
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.pagingData.collectLatest { pagingData ->
                 Timber.d("pagingData: $pagingData")
-                (binding.items.adapter as ItemsAdapter).submitData(pagingData)
+                pagingAdapter.submitData(pagingData)
             }
         }
 
         binding.bGoToDetails.setOnClickListener {
 //            val action = PopularMoviesFragmentDirections.actionPopularMoviesFragmentToMovieDetailsFragment()
 //            findNavController().navigate(action)
-            viewModel.accept(UiAction.LoadMore())
         }
     }
 
