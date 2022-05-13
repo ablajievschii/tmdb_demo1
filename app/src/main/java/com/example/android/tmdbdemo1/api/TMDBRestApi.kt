@@ -3,14 +3,21 @@ package com.example.android.tmdbdemo1.api
 import com.example.android.tmdbdemo1.BuildConfig
 import com.example.android.tmdbdemo1.api.DiscoverMovieResponse
 import com.example.android.tmdbdemo1.model.Genres
+import com.example.android.tmdbdemo1.model.Movie
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 // /discover/movie
 // /movie/{movie_id}
 // /genre/movie/list
 interface TMDBRestApi {
+
+    @GET("movie/{movieId}")
+    suspend fun getMovie(
+        @Path("movieId") movieId: Int
+    ): Response<Movie>
 
     /**
      * @param page minimum: 1; maximum: 1000; default: 1
