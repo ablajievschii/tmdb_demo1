@@ -11,6 +11,8 @@ data class DiscoverMovie(
     val title: String? = null,
     val overview: String? = null,
     val popularity: Float? = null,
+    @SerializedName(value = "vote_average")
+    val voteAverage: Float? = null,
     @SerializedName(value = "release_date")
     val releaseDate: String? = null,
     /**

@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/score_view_background"
+        app:voteAverage="@{movie.voteAverage}"
         app:indicatorSize="@dimen/score_indicator_size"
         app:trackCornerRadius="@dimen/score_track_corner_radius"
         app:indicatorColor="@color/score_indicator_color"

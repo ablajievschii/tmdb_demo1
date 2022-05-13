@@ -13,6 +13,7 @@ import coil.load
 import com.example.android.tmdbdemo1.R
 import com.example.android.tmdbdemo1.api.tmdbImageUrl
 import com.google.android.material.chip.ChipGroup
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,6 +29,14 @@ fun bindPosterPathThumb(imageView: ImageView, path: String?) {
 fun bindPosterPath(imageView: ImageView, path: String?) {
     path?.let {
         imageView.load(tmdbImageUrl(path, "w500")) // FIXME Code smell, magic number :)
+    }
+}
+
+@BindingAdapter("voteAverage")
+fun bindVoteAverageProgress(progressView: CircularProgressIndicator, voteAverage: Float?) {
+//    popularity_percent
+    voteAverage?.let {
+        progressView.progress = (voteAverage * 10).toInt()
     }
 }
 
