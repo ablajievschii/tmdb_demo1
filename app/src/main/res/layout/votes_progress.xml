@@ -2,9 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="androidx.lifecycle.LiveData"/>
         <variable
             name="movie"
             type="com.example.android.tmdbdemo1.model.DiscoverMovie" />
+        <variable
+            name="votes"
+            type="LiveData&lt;Float&gt;" />
     </data>
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/votes"
@@ -12,6 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/score_view_background"
         app:voteAverage="@{movie.voteAverage}"
+        app:voteAverageLive="@{votes}"
         app:indicatorSize="@dimen/score_indicator_size"
         app:trackCornerRadius="@dimen/score_track_corner_radius"
         app:indicatorColor="@color/score_indicator_color"

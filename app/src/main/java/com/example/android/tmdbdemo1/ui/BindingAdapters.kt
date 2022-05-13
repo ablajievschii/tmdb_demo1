@@ -35,15 +35,33 @@ fun bindPosterPath(imageView: ImageView, path: String?) {
 @BindingAdapter("voteAverage")
 fun bindVoteAverageProgress(progressView: CircularProgressIndicator, voteAverage: Float?) {
     voteAverage?.let {
-        progressView.progress = (voteAverage * 10).toInt()
+        progressView.progress = getVotesPercent(it)
+    }
+}
+
+@BindingAdapter("voteAverageLive")
+fun bindVoteAverageProgress(progressView: CircularProgressIndicator, voteAverage: LiveData<Float?>?) {
+    voteAverage?.value?.let {
+        progressView.progress = getVotesPercent(it)
     }
 }
 
 @BindingAdapter("voteAverage")
 fun bindVoteAverageText(textView: TextView, voteAverage: Float?) {
     voteAverage?.let {
-        textView.text = textView.resources.getString (R.string.votes_percent, (voteAverage * 10).toInt())
+        textView.text = textView.resources.getString (R.string.votes_percent, getVotesPercent(it))
     }
+}
+
+@BindingAdapter("voteAverageLive")
+fun bindVoteAverageText(textView: TextView, voteAverage: LiveData<Float?>?) {
+    voteAverage?.value?.let {
+        textView.text = textView.resources.getString (R.string.votes_percent, getVotesPercent(it))
+    }
+}
+
+private fun getVotesPercent(votes: Float): Int {
+    return (votes * 10).toInt()
 }
 
 @BindingAdapter("genreChips")

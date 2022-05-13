@@ -38,6 +38,9 @@ class MovieDetailsViewModel @Inject constructor(
     val homepage: LiveData<String?> = _movie.map {
         it.homepage
     }.asLiveData()
+    val votes: LiveData<Float?> = _discoverMovie.map {
+        it.voteAverage
+    }.asLiveData()
 
     fun loadMovie(movieId: Int) {
         viewModelScope.launch {

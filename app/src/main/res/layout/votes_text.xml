@@ -3,9 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="androidx.lifecycle.LiveData"/>
         <variable
             name="movie"
             type="com.example.android.tmdbdemo1.model.DiscoverMovie" />
+        <variable
+            name="votes"
+            type="LiveData&lt;Float&gt;" />
     </data>
     <TextView
         android:id="@+id/tvVotes"
@@ -14,5 +18,6 @@
         android:textColor="@color/white"
         android:textSize="11sp"
         app:voteAverage="@{movie.voteAverage}"
+        app:voteAverageLive="@{votes}"
         tools:text="75"/>
 </layout>

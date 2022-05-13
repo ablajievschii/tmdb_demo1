@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:padding="@dimen/content_padding"
             tools:context=".TMDBActivity"
-            tools:showIn="@layout/fragment_movie_details3">
+            tools:showIn="@layout/fragment_movie_details">
 
             <FrameLayout
                 android:id="@+id/imageContainer"
@@ -44,6 +44,26 @@
                     tools:src="@drawable/test_list_item_image" />
 
             </FrameLayout>
+
+            <include
+                android:id="@+id/votes"
+                layout="@layout/votes_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_item_score_margin"
+                app:votes="@{viewModel.votes}"
+                app:layout_constraintEnd_toEndOf="@id/imageContainer"
+                app:layout_constraintBottom_toBottomOf="@id/imageContainer"/>
+
+            <include
+                layout="@layout/votes_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:votes="@{viewModel.votes}"
+                app:layout_constraintTop_toTopOf="@id/votes"
+                app:layout_constraintBottom_toBottomOf="@id/votes"
+                app:layout_constraintStart_toStartOf="@id/votes"
+                app:layout_constraintEnd_toEndOf="@id/votes" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/genreChips"
@@ -89,15 +109,6 @@
                 app:layout_constraintTop_toBottomOf="@id/title"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="@string/large_text"/>
-
-<!--            <com.google.android.material.imageview.ShapeableImageView-->
-<!--                android:id="@+id/fab"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_marginStart="@dimen/fab_margin"-->
-<!--                app:layout_anchor="@id/app_bar"-->
-<!--                app:layout_anchorGravity="bottom|start"-->
-<!--                app:srcCompat="@android:drawable/ic_menu_report_image" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
