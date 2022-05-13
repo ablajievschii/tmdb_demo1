@@ -15,4 +15,5 @@
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="black_alpha_60">#99000000</color>
+    <color name="score_indicator_color">#d29001</color>
 </resources>

@@ -7,4 +7,9 @@
     <dimen name="list_item_margin_sides">8dp</dimen>
     <dimen name="list_item_text_margin_top">8dp</dimen>
     <dimen name="list_item_chip_spacing">4dp</dimen>
+    <dimen name="score_track_corner_radius">8dp</dimen>
+    <dimen name="score_track_thickness">3dp</dimen>
+    <dimen name="list_item_score_margin">2dp</dimen>
+    <dimen name="score_indicator_size">30dp</dimen>
+    <dimen name="score_view_background_padding">-2dp</dimen>
 </resources>
