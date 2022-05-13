@@ -19,7 +19,7 @@ fun bindPosterPathThumb(imageView: ImageView, path: String?) {
 @BindingAdapter("android:posterPath")
 fun bindPosterPath(imageView: ImageView, path: String?) {
     path?.let {
-        imageView.load(tmdbImageUrl(path, "w542")) // FIXME Code smell, magic number :)
+        imageView.load(tmdbImageUrl(path, "w500")) // FIXME Code smell, magic number :)
     }
 }
 

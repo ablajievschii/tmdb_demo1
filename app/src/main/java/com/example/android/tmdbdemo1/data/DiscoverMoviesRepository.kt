@@ -27,4 +27,8 @@ class DiscoverMoviesRepository @Inject constructor(
         ),
         pagingSourceFactory = { DiscoverMoviesPagingSource(service, database) }
     ).flow
+
+    suspend fun getMovie(movieId: Int): DiscoverMovie {
+        return database.discoverDao().getMovieById(movieId)
+    }
 }
