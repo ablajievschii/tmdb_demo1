@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/fullscreenBackgroundColor"
-    android:theme="@style/ThemeOverlay.TMDBDemo1.FullscreenContainer"
+    android:theme="@style/ThemeOverlay.AppCompat.Screen"
     tools:context=".ui.PopularMoviesFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

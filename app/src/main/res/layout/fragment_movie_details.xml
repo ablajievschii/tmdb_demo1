@@ -10,12 +10,15 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Screen"
         tools:context=".TMDBActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/content_padding"
             tools:context=".TMDBActivity"
             tools:showIn="@layout/fragment_movie_details3">
 
@@ -28,28 +31,40 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintDimensionRatio="1:1">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/header"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     android:posterPath="@{viewModel.posterPath}"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.MovieDetails"
                     android:contentDescription="TODO"
                     tools:src="@drawable/test_list_item_image" />
 
             </FrameLayout>
 
             <TextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="@{viewModel.overview}"
-                tools:text="@string/large_text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{viewModel.title}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="?attr/titleTextColor"
                 app:layout_constraintTop_toBottomOf="@id/imageContainer"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.overview}"
+                android:textColor="?attr/subtitleTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@string/large_text"/>
 
 <!--            <com.google.android.material.imageview.ShapeableImageView-->
 <!--                android:id="@+id/fab"-->
