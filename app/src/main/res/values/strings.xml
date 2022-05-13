@@ -95,4 +95,6 @@
     <string name="go_to_movie_home">go to movie home</string>
     <string name="visit_homepage">Visit Homepage</string>
     <string name="votes_percent">%d%%</string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="movie_details">Movie Details</string>
 </resources>
