@@ -30,6 +30,9 @@ class MovieDetailsViewModel @Inject constructor(
     val posterPath: LiveData<String?> = _movie.map {
         it.posterPath
     }.asLiveData()
+    val genres: LiveData<List<String>?> = _movie.map {
+        it.genreIds?.mapNotNull { id -> repoGenre.genreById(id) }
+    }.asLiveData()
 
     fun loadMovie(movieId: Int) {
         viewModelScope.launch {

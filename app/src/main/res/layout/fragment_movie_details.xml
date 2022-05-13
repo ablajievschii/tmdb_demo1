@@ -44,6 +44,18 @@
 
             </FrameLayout>
 
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/genreChips"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/list_item_text_margin_top"
+                app:chipSpacing="@dimen/list_item_chip_spacing"
+                app:genreChips="@{viewModel.genres}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageContainer">
+            </com.google.android.material.chip.ChipGroup>
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -52,7 +64,8 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="?attr/titleTextColor"
-                app:layout_constraintTop_toBottomOf="@id/imageContainer"
+                android:layout_marginTop="@dimen/list_item_text_margin_top"
+                app:layout_constraintTop_toBottomOf="@id/genreChips"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -61,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.overview}"
                 android:textColor="?attr/subtitleTextColor"
+                android:layout_marginTop="@dimen/list_item_text_margin_top"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
                 app:layout_constraintEnd_toEndOf="parent"
