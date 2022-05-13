@@ -1,5 +1,9 @@
 package com.example.android.tmdbdemo1.ui
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -39,6 +43,23 @@ fun bindGenreChips(chipGroup: ChipGroup, genres: LiveData<List<String>?>) {
         }
     }
 }
+
+@BindingAdapter("homepage")
+fun bindHomePage(imageView: ImageView, homepage: LiveData<String?>) {
+    homepage.value?.let { url ->
+        imageView.visibility = View.VISIBLE
+        imageView.setOnClickListener { _ ->
+            goToHomePage(imageView.context, url)
+        }
+    } ?: imageView.setVisibility(View.GONE)
+}
+
+private fun goToHomePage(context: Context, url: String) {
+    val uri = Uri.parse(url)
+    val intent = Intent(Intent.ACTION_VIEW, uri)
+    context.startActivity(intent)
+}
+
 
 @BindingAdapter("formatDate")
 fun bindFormatDate(textView: TextView, value: String?) {

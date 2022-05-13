@@ -7,6 +7,7 @@ import com.example.android.tmdbdemo1.api.DiscoverMoviesPagingSource
 import com.example.android.tmdbdemo1.api.TMDBRestApi
 import com.example.android.tmdbdemo1.db.MoviesDatabase
 import com.example.android.tmdbdemo1.model.DiscoverMovie
+import com.example.android.tmdbdemo1.model.Movie
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -30,5 +31,14 @@ class DiscoverMoviesRepository @Inject constructor(
 
     suspend fun getMovie(movieId: Int): DiscoverMovie {
         return database.discoverDao().getMovieById(movieId)
+    }
+
+    suspend fun enhanceMovie(movieId: Int): Movie? {
+        val response = service.getMovie(movieId)
+        val body = response.body()
+        if (response.isSuccessful && body != null) {
+            return body
+        }
+        return null
     }
 }
