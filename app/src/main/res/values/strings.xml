@@ -94,4 +94,5 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="go_to_movie_home">go to movie home</string>
     <string name="visit_homepage">Visit Homepage</string>
+    <string name="votes_percent">%d%%</string>
 </resources>

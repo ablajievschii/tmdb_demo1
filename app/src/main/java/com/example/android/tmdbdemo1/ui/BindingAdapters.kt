@@ -34,9 +34,15 @@ fun bindPosterPath(imageView: ImageView, path: String?) {
 
 @BindingAdapter("voteAverage")
 fun bindVoteAverageProgress(progressView: CircularProgressIndicator, voteAverage: Float?) {
-//    popularity_percent
     voteAverage?.let {
         progressView.progress = (voteAverage * 10).toInt()
+    }
+}
+
+@BindingAdapter("voteAverage")
+fun bindVoteAverageText(textView: TextView, voteAverage: Float?) {
+    voteAverage?.let {
+        textView.text = textView.resources.getString (R.string.votes_percent, (voteAverage * 10).toInt())
     }
 }
 

@@ -45,6 +45,19 @@
                 app:layout_constraintBottom_toBottomOf="@id/image"/>
 
             <TextView
+                android:id="@+id/tvVotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:voteAverage="@{movie.voteAverage}"
+                app:layout_constraintTop_toTopOf="@id/votes"
+                app:layout_constraintBottom_toBottomOf="@id/votes"
+                app:layout_constraintStart_toStartOf="@id/votes"
+                app:layout_constraintEnd_toEndOf="@id/votes"
+                tools:text="75"/>
+
+            <TextView
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
