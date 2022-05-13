@@ -34,6 +34,7 @@ class PopularMoviesViewModel @Inject constructor(
         // FIXME assume it does not fail and loads quickly
         viewModelScope.launch {
             repoGenre.loadGenres()
+            sharedFlow.emit(UiAction.LoadMore())
         }
 
         pagingData = sharedFlow
