@@ -26,7 +26,7 @@ class ItemsAdapter @Inject constructor() : PagingDataAdapter<UiModel, ItemsViewH
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
         return ItemsViewHolder.from(parent).also { holder ->
             listener?.let { onClick ->
-                holder.listen { pos, type, view ->
+                holder.listen { pos, _, view ->
                     getItem(pos)?.let { item -> onClick(item, view) }
                 }
             }

@@ -7,7 +7,7 @@
             name="movie"
             type="com.example.android.tmdbdemo1.model.DiscoverMovie" />
         <variable
-            name="votes"
+            name="votesCount"
             type="LiveData&lt;Float&gt;" />
     </data>
     <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/score_view_background"
         app:voteAverage="@{movie.voteAverage}"
-        app:voteAverageLive="@{votes}"
+        app:voteAverageLive="@{votesCount}"
         app:indicatorSize="@dimen/score_indicator_size"
         app:trackCornerRadius="@dimen/score_track_corner_radius"
         app:indicatorColor="@color/score_indicator_color"
