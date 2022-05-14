@@ -97,4 +97,6 @@
     <string name="votes_percent">%d%%</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="movie_details">Movie Details</string>
+    <string name="poster_thumb_size">w154</string>
+    <string name="poster_size">w500</string>
 </resources>

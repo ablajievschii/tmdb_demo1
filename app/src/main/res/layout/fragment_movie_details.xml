@@ -39,6 +39,7 @@
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     android:posterPath="@{viewModel.posterPath}"
+                    app:posterSize='@{"w500"}'
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.MovieDetails"
                     android:contentDescription="TODO"
                     tools:src="@drawable/test_list_item_image" />

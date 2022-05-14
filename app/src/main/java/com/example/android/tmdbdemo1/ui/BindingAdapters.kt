@@ -18,17 +18,18 @@ import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
-@BindingAdapter("android:posterPathThumb")
-fun bindPosterPathThumb(imageView: ImageView, path: String?) {
+@BindingAdapter(value = ["android:posterPathThumb", "posterSize"])
+fun bindPosterPathThumb(imageView: ImageView, path: String?, size: String?) {
     path?.let {
-        imageView.load(tmdbImageUrl(path, "w342")) // FIXME Code smell, magic number :)
+        imageView.load(tmdbImageUrl(path, size ?: imageView.resources.getString(R.string.poster_thumb_size)))
     }
 }
 
-@BindingAdapter("android:posterPath")
-fun bindPosterPath(imageView: ImageView, path: String?) {
+// could be combined with bindPosterPathThumb, just need to add another attribute to specify default value
+@BindingAdapter(value = ["android:posterPath", "posterSize"])
+fun bindPosterPath(imageView: ImageView, path: String?, size: String?) {
     path?.let {
-        imageView.load(tmdbImageUrl(path, "w500")) // FIXME Code smell, magic number :)
+        imageView.load(tmdbImageUrl(path, size ?: imageView.resources.getString(R.string.poster_size)))
     }
 }
 
