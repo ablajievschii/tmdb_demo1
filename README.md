@@ -1,3 +1,6 @@
+## NOTE
+  The app is not a complete project. There are many areas to improve and implement, like handling errors, testing, different screen sizes support, etc. That was not implemented due to a time limit.
+
 # tmdb_demo1
   An app to discover the most popular movies from The Movie Database (TMDB)
   
