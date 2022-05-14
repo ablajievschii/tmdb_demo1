@@ -1,5 +1,10 @@
 # tmdb_demo1
   An app to discover the most popular movies from The Movie Database (TMDB)
+  
+  <span>
+    <img src="screenshots/home.jpg" width=200/>
+    <img src="screenshots/details.jpg" width=200/>
+  </span>
 
 ## Run app in emulator
   1. Setup emulator https://developer.android.com/studio/run/emulator
